@@ -25,7 +25,7 @@ class GameController(private val socket: Socket,
                 onGameMove(incomingData)
             }
             .on("finish") { params ->
-                val incomingData = params.toJsonObject()?.also { println(it) }.toString().parseToTournamentGame()
+                val incomingData = params.toJsonObject().toString().parseToTournamentGame()
                 Logger.info("Game completed received $incomingData")
                 onGameCompleted(incomingData)
             }
