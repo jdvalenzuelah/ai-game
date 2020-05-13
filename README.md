@@ -9,10 +9,12 @@ from main folder
 ```
 
 To run:
+
 First unzip the compiled dist
 ```
 unzip ai-2020-1.0-SNAPSHOT.zip 
 ```
+
 
 Run passing the args:
 ```
