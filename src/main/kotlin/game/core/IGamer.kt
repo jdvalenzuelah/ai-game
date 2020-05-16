@@ -1,4 +1,4 @@
-package game.gameLogic
+package game.core
 
 import game.models.TournamentGame
 

@@ -3,7 +3,7 @@ package game
 import com.xenomachina.argparser.ArgParser
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.github.nkzawa.socketio.client.IO
-import game.gameLogic.IGamer
+import game.core.IGamer
 import game.gameService.GameController
 import game.models.GameUser
 import game.models.TournamentGame

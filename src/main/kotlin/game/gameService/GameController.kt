@@ -4,7 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import com.github.nkzawa.socketio.client.Socket
 import game.exceptions.NoMovementMadeException
-import game.gameLogic.IGamer
+import game.core.IGamer
 import game.models.GameUser
 import game.models.TournamentGame
 import org.json.JSONObject
