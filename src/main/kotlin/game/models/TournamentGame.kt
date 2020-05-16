@@ -11,10 +11,8 @@ import java.math.BigInteger
 @JsonInclude(JsonInclude.Include.NON_NULL)
 data class TournamentGame(val gameId: BigInteger,
                           val playerTurnId: Int,
-                          val board: List<Int>,
+                          val board: List<List<Int>>,
                           val tournamentId: Int?,
-                          // Just received on game ended
                           val winnerTurnId: Int?,
-                          // Just for play, data type to be determined
                           @JsonAlias("movementNumber")
                           val movement: Int?)
