@@ -22,6 +22,19 @@ class DotsAndBoxes(val emptyValue: Int): IDotsAndBoxes {
         MarkType.HORIZONTAL -> horizontalLines.size
     }
 
+    override fun getEmptyPositions(type: MarkType): List<Int> {
+
+        val lineList = when(type) {
+            MarkType.VERTICAL -> verticalLines
+            MarkType.HORIZONTAL -> horizontalLines
+        }
+
+        return lineList
+            .mapIndexed { index, line -> Pair(index, line == emptyValue) }
+            .filter { it.second }.map { it.first }
+
+    }
+
     override fun getClosedBoxesCount(): Int {
         TODO("Not yet implemented")
     }
