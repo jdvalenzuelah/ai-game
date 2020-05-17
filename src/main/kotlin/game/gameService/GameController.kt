@@ -63,7 +63,8 @@ class GameController(private val socket: Socket,
     }
 
     fun emitPlayerReady(game: TournamentGame) {
-        Logger.info("Waiting for new games on tournament ${game.tournamentId}")
-        socket.emit("player_ready", game.copy(tournamentId = user.tournamentId).toReadyMap())
+        val gameToEmit = game.copy(tournamentId = user.tournamentId)
+        Logger.info("Waiting for new games on tournament ${gameToEmit.tournamentId}")
+        socket.emit("player_ready", gameToEmit.toReadyMap())
     }
 }
