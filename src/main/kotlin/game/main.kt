@@ -3,10 +3,10 @@ package game
 import com.xenomachina.argparser.ArgParser
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.github.nkzawa.socketio.client.IO
-import game.core.IGamer
 import game.gameService.GameController
+import game.core.games.dotsAndBoxes.gamers.RandomGamer
+import game.core.games.dotsAndBoxes.gameLogic.DotsAndBoxes
 import game.models.GameUser
-import game.models.TournamentGame
 import game.models.UserRole
 
 lateinit var arguments: Args
@@ -34,12 +34,9 @@ fun main(args: Array<String>) {
     val user = GameUser(arguments.userName, arguments.tournamentId, UserRole.PLAYER)
     val jackson = jacksonObjectMapper()
 
-    // Mock pending implementation
-    val gamer =  object : IGamer {
-        override fun makeMove(gameState: TournamentGame): TournamentGame {
-            return gameState.copy(movement = 1)
-        }
-    }
+    // Use random implementation
+    val dotsAndBoxes = DotsAndBoxes( emptyValue = 99)
+    val gamer = RandomGamer(dotsAndBoxes)
 
     GameController(socket, user, gamer, jackson).start()
 }
