@@ -14,5 +14,6 @@ data class TournamentGame(val gameId: BigInteger,
                           val board: List<List<Int>>,
                           val tournamentId: Int?,
                           val winnerTurnId: Int?,
-                          @JsonAlias("movementNumber")
-                          val movement: Int?)
+                          val movement: List<Int>?,
+                          @JsonProperty("movementNumber")
+                          val movementNumber: Int? = null)
