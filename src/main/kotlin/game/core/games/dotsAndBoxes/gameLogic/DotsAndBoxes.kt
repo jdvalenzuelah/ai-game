@@ -35,7 +35,6 @@ class DotsAndBoxes(val emptyValue: Int): IDotsAndBoxes {
     }
 
     override fun markPosition(position: Int, type: MarkType): Pair<Int, Int>? {
-        //Logger.info("Marking up new position $position on $type")
         return when(type) {
             MarkType.HORIZONTAL -> {
                 if(horizontalLines[position] == emptyValue) {

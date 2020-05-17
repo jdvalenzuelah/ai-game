@@ -57,8 +57,9 @@ class GameController(private val socket: Socket,
 
     fun emitPlay(play: TournamentGame) {
         if(play.movement == null) throw NoMovementMadeException("Move was not specified")
-        Logger.info("Sending play $play for game ${play.gameId}")
-        socket.emit("play", play.toPlayMap())
+        val playToSend = play.copy(tournamentId = user.tournamentId)
+        Logger.info("Sending play $playToSend for game ${play.gameId}")
+        socket.emit("play", playToSend.toPlayMap())
     }
 
     fun emitPlayerReady(game: TournamentGame) {
