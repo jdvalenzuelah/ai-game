@@ -12,11 +12,11 @@ To run:
 
 First unzip the compiled dist
 ```
-unzip ai-2020-1.0-SNAPSHOT.zip 
+unzip ai-2020-0.1.zip 
 ```
 
 
 Run passing the args:
 ```
-./ai-2020-1.0-SNAPSHOT/bin/ai-2020 -s <server address> -t <tournament id> -u <user name>
+./ai-2020-0.1/bin/ai-2020  -s <server address> -t <tournament id> -u <user name>
 ```
