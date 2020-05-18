@@ -3,7 +3,7 @@ package game.core.games.dotsAndBoxes.gameLogic
 import game.core.IGamer
 import game.core.games.dotsAndBoxes.models.MarkType
 
-interface IDotsAndBoxes : IGamer {
+interface IDotsAndBoxes {
     fun setBoard(boardRepresentation: List<List<Int>>)
     fun getBoardRepresentation(): List<List<Int>>
     fun getLineCount(type: MarkType): Int

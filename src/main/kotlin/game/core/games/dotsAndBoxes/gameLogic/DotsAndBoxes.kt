@@ -43,10 +43,6 @@ class DotsAndBoxes(val emptyValue: Int): IDotsAndBoxes {
         TODO("Not yet implemented")
     }
 
-    override fun makeMove(gameState: TournamentGame): TournamentGame {
-        TODO("Not yet implemented")
-    }
-
     override fun markPosition(position: Int, type: MarkType): Pair<Int, Int>? {
         return when(type) {
             MarkType.HORIZONTAL -> {
