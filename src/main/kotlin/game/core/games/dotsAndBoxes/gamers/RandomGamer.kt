@@ -13,17 +13,21 @@ class RandomGamer(val gameLogic: IDotsAndBoxes): IGamer {
         gameLogic.setBoard(gameState.board)
 
         Logger.info("Getting new random move")
-        var positionMarked: Pair<Int, Int>?
-        do {
-            val markType = MarkType.values().random()
-            val size = gameLogic.getLineCount(markType) - 1
-            val markPosition = (0..size).random()
-            positionMarked = gameLogic.markPosition(markPosition, markType)
-        } while (positionMarked == null)
-        Logger.info("New move found $positionMarked")
-        return gameState.copy(
-            board = gameLogic.getBoardRepresentation(),
-            movement = positionMarked.toList()
-        )
+
+        return MarkType.values()
+            .map { markType ->
+                gameLogic.getEmptyPositions(markType)
+                    .map { it to markType }
+            }
+            .flatten()
+            .random()
+            .let { gameLogic.markPosition(it.first, it.second) }
+            ?.let {
+                gameState.copy(
+                    board = gameLogic.getBoardRepresentation(),
+                    movement = it.toList()
+                )
+            } ?: gameState
     }
+
 }
