@@ -4,6 +4,7 @@ import com.xenomachina.argparser.ArgParser
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.github.nkzawa.socketio.client.IO
 import com.xenomachina.argparser.default
+import com.xenomachina.argparser.mainBody
 import game.gameService.GameController
 import game.core.games.dotsAndBoxes.gamers.RandomGamer
 import game.core.games.dotsAndBoxes.gameLogic.DotsAndBoxes
@@ -26,7 +27,7 @@ class Args(parser: ArgParser) {
 }
 
 
-fun main(args: Array<String>) {
+fun main(args: Array<String>) = mainBody {
 
     ArgParser(args).parseInto(::Args).run { arguments = this }
 
