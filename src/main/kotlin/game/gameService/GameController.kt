@@ -15,6 +15,8 @@ class GameController(private val socket: Socket,
                      private val gamer: IGamer,
                      private val mapper: ObjectMapper) {
 
+    private var playedGames = 0
+
     fun start() {
         socket.connect()
             .on(Socket.EVENT_CONNECT) { onConnection() }
@@ -51,6 +53,8 @@ class GameController(private val socket: Socket,
 
     fun onGameCompleted(game: TournamentGame) {
         Logger.info("Game ${game.gameId} completed. Winner ${game.winnerTurnId}")
+        playedGames++
+        Logger.info("Played Games: $playedGames")
         //clean up
         emitPlayerReady(game)
     }
