@@ -9,8 +9,8 @@ import org.pmw.tinylog.Logger
 class RandomGamer(val gameLogic: IDotsAndBoxes): IGamer {
 
     override fun makeMove(gameState: TournamentGame): TournamentGame {
-
-        gameLogic.setBoard(gameState.board)
+        val playerTurn = getPlayerTurnFromId(gameState.playerTurnId)
+        gameLogic.setBoard(gameState.board, playerTurn)
 
         Logger.info("Getting new random move")
 
@@ -21,7 +21,7 @@ class RandomGamer(val gameLogic: IDotsAndBoxes): IGamer {
             }
             .flatten()
             .random()
-            .let { gameLogic.markPosition(it.first, it.second) }
+            .let { gameLogic.markPosition(it.first, it.second, playerTurn) }
             ?.let {
                 gameState.copy(
                     board = gameLogic.getBoardRepresentation(),
