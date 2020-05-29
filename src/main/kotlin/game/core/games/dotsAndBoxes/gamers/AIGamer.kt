@@ -9,7 +9,7 @@ import kotlin.math.max
 import kotlin.math.min
 
 class AIGamer (val gameLogic: IDotsAndBoxes,
-               private val maxDepth: Int = 5): IGamer {
+               private val maxDepth: Int = 4): IGamer {
 
     private val initialAlpha = Int.MIN_VALUE + 1
     private val initialBeta = Int.MAX_VALUE - 1
