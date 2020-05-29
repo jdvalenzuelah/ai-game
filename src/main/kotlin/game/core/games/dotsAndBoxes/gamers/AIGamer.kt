@@ -92,7 +92,7 @@ class AIGamer (val gameLogic: IDotsAndBoxes,
                 }
             }
         }
-        return alpha
+        return beta
     }
 
 
