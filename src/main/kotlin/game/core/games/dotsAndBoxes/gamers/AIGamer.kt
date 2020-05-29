@@ -87,7 +87,7 @@ class AIGamer (val gameLogic: IDotsAndBoxes,
                 val score = miniMax(gameLogic, true, depth + 1, alpha, beta)
                 gameState.emptyPositions(move.second, move.first)
                 beta = min(beta, score)
-                if(alpha >= beta) {
+                if(alpha <= beta) {
                     return@minLoop
                 }
             }
